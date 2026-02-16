@@ -3,11 +3,12 @@ const express = require("express");
 const db = require("./db");  
 const userRoutes = require("./routes/userRoutes");
 const accountRoutes = require("./routes/accountRoutes");
+require("dotenv").config();
 /* =========================
 APP CONFIGURATION
 ========================= */
 const app = express();
-const PORT = 3000; 
+const PORT = process.env.PORT || 3000; 
 app.use(express.json());
 app.use('/api/users', userRoutes);
 app.use('/', accountRoutes);
